@@ -1,5 +1,10 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
+        int[] res = optamized(nums, target);
+        return res;
+    }
+
+    public int[] optamized(int[] nums, int target){
         Map<Integer, Integer> m = new HashMap<>();
         int[] res = new int[2];
         for(int i=0;i<nums.length;i++){
@@ -12,5 +17,6 @@ class Solution {
         }
 
         return res;
+
     }
 }
