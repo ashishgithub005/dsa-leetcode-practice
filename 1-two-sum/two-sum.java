@@ -1,38 +1,15 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int[] res = bruteForce(nums, target);
-        //int[] res = optamized(nums, target);
-        return res;
-    }
-
-    public int[] bruteForce(int[] nums, int target){
-        int[] res = new int[2];
-        for(int i=0;i<nums.length-1;i++){
-            for(int j=i+1;j<nums.length;j++){
-                int sum = nums[i] + nums[j];
-                if(sum == target){
-                    res[0] = i;
-                    res[1] = j;
-                }
-            }
-        }
-     
-       return res;
-    }
-
-    public int[] optamized(int[] nums, int target){
-        Map<Integer, Integer> m = new HashMap<>();
-        int[] res = new int[2];
+        Map<Integer, Integer> ans = new HashMap<>();
         for(int i=0;i<nums.length;i++){
-            int sec = target - nums[i];
-            if(m.containsKey(sec)){
-                res[0] = m.get(sec);
-                res[1] = i;
+           int diff = target - nums[i];
+           if(ans.containsKey(diff)){
+             return new int[]{i, ans.get(diff)};
+            }else{
+               ans.put(nums[i], i);
             }
-            m.put(nums[i], i);
-        }
+        } 
 
-        return res;
-
+        return new int[]{};
     }
 }
